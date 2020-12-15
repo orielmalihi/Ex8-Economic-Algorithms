@@ -20,10 +20,16 @@ def max_revenue_auction1(agent1: Uniform, value: float):
     Agent 1 wins and pays 15.0
     >>> max_revenue_auction1(agent1, 14.9)
     No agent wins
+    >>> agent1 = Uniform(30,50)
+    >>> max_revenue_auction1(agent1, 40)
+    Agent 1 wins and pays 30
     """
     revenue = uniform_revenue(agent1, value)
     if revenue > 0:
-        print("Agent 1 wins and pays "+str(agent1.high/2.0))
+        if agent1.high/2.0 < agent1.low:
+            print("Agent 1 wins and pays "+str(agent1.low))
+        else:
+            print("Agent 1 wins and pays "+str(agent1.high/2.0))
     else:
         print("No agent wins")
 
