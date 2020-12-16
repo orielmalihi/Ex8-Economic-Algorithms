@@ -68,7 +68,7 @@ def max_revenue_auction2(agent1: Uniform, value1: float, agent2: Uniform, value2
         while revenue1 > revenue2:
             value1 -= 1
             revenue1 = uniform_revenue(agent1, value1)
-            if revenue1 == revenue2:
+            if revenue1 <= revenue2:
                 payment = value1
         print("Agent 1 wins and pays "+str(payment))
     elif max_revenue == revenue2:
@@ -76,7 +76,7 @@ def max_revenue_auction2(agent1: Uniform, value1: float, agent2: Uniform, value2
         while revenue2 > revenue1:
             value2 -= 1
             revenue2 = uniform_revenue(agent2, value2)
-            if revenue2 == revenue1:
+            if revenue2 <= revenue1:
                 payment = value2
         print("Agent 2 wins and pays "+str(value2))
 
